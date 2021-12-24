@@ -1,5 +1,7 @@
 ﻿using ApiClone.Core.Interfaces;
 using ApiClone.Data;
+using ApiClone.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiClone.Core.Services
 {
-    internal class HomeService : IHomeService
+    public class HomeService : IHomeService
     {
         private readonly ApiCloneDBContext _dbcontext;
 
@@ -16,6 +18,13 @@ namespace ApiClone.Core.Services
         {
             _dbcontext = dbcontext;
         }
+
+        public string OvirPassports(string PinFL)
+        {
+            OvirPassports res = _dbcontext.ovirPassports.FirstOrDefault(p => p.PinFL == PinFL);
+            return JsonConvert.SerializeObject(res);
+        }
+
 
         public string Alimony(string PinFL)
         {
@@ -27,9 +36,6 @@ namespace ApiClone.Core.Services
             throw new NotImplementedException();
         }
 
-        public string OvirPassports(string PinFL)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

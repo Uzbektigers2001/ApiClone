@@ -1,4 +1,5 @@
 using ApiClone.Core.Interfaces;
+using ApiClone.Core.Services;
 using ApiClone.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,7 +37,7 @@ namespace ApiClone
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiClone", Version = "v1" });
             });
 
-            services.AddScoped<IHomeService, IHomeService>();
+            services.AddScoped<IHomeService, HomeService>();
             services.AddDbContext<ApiCloneDBContext>(options => 
                         options.UseSqlServer(Configuration.GetConnectionString("ConnectProduction")));
         }

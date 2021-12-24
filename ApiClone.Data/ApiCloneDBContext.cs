@@ -15,7 +15,7 @@ namespace ApiClone.Data
 
         }
 
-        public DbSet<OvirPassports> passports { get; set; }
+        public DbSet<OvirPassports> ovirPassports { get; set; }
 
     }
 }

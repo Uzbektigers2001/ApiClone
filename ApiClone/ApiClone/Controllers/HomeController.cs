@@ -14,6 +14,7 @@ namespace ApiClone.Controllers
             _homeService = homeService;
         }
 
+        [HttpGet]
         public IActionResult GetOvirPassports(string PinFL)
         {
             return Ok(_homeService.OvirPassports(PinFL));

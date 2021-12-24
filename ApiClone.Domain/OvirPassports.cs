@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ApiClone.Domain
 {
+    [Table("PersonPassports")]
     public class OvirPassports
     {
         public long Id { get; set; }
@@ -14,7 +16,7 @@ namespace ApiClone.Domain
         public string PinFL { get; set; }
         public string PasspSer { get; set; }
         public string PasspNum { get; set; }
-        public DateTime dateTime { get; set; }
+        public DateTime CreatedOn { get; set; }
 
     }
 }
