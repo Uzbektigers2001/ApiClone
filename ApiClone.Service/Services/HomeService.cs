@@ -21,8 +21,23 @@ namespace ApiClone.Core.Services
 
         public string OvirPassports(string PinFL)
         {
-            OvirPassports res = _dbcontext.ovirPassports.FirstOrDefault(p => p.PinFL == PinFL);
-            return JsonConvert.SerializeObject(res);
+            List<OvirPassports> res = _dbcontext.ovirPassports.Where(p => p.PinFL == PinFL).ToList();
+
+            Root root = new Root();
+            root.PinFL = PinFL;
+
+            List<Passport> passports = new List<Passport>();
+
+            foreach (var item in res)
+            {
+                Passport passport = new Passport();
+                passport.PasspSer = item.PasspSer;
+                passport.PasspNum = int.Parse(item.PasspNum);
+                passports.Add(passport);
+            }
+            root.Passports = passports;
+
+            return JsonConvert.SerializeObject(root);
         }
 
 

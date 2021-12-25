@@ -1,5 +1,7 @@
 ﻿using ApiClone.Core.Interfaces;
+using ApiClone.Domain;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace ApiClone.Controllers
 {
@@ -14,10 +16,10 @@ namespace ApiClone.Controllers
             _homeService = homeService;
         }
 
-        [HttpGet]
-        public IActionResult GetOvirPassports(string PinFL)
+        [HttpPost]
+        public IActionResult GetOvirPassports([FromHeader] PairValues keyValues)
         {
-            return Ok(_homeService.OvirPassports(PinFL));
+            return Ok(_homeService.OvirPassports(keyValues.PinFL));
         }
 
     }

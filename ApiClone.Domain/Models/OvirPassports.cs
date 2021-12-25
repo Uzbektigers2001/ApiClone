@@ -19,4 +19,24 @@ namespace ApiClone.Domain
         public DateTime CreatedOn { get; set; }
 
     }
+    // for request
+    public class PairValues
+    {
+        public string PinFL { get; set; }
+        public string DateOfBirth { get; set; }
+    }
+
+    // response
+    public class Passport
+    {
+        public string PasspSer { get; set; }
+        public int PasspNum { get; set; }
+    }
+
+    public class Root
+    {
+        public string PinFL { get; set; }
+        public List<Passport> Passports { get; set; }
+    }
+
 }
