@@ -1,4 +1,5 @@
 ﻿using ApiClone.Domain;
+using ApiClone.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,13 @@ namespace ApiClone.Data
 
         }
 
-        public DbSet<OvirPassports> ovirPassports { get; set; }
+        public DbSet<OvirPassports> OvirPassports { get; set; }
+
+        public DbSet<TaxCommiteeInn> TaxCommiteeInns { get; set; }
+
+        public DbSet<CreditorInfo> CreditorInfo { get; set; }
+        
+        public DbSet<GetPersonCapitalMarketsForApiClone> PersonCapitalMarkets { get; set; }
 
     }
 }

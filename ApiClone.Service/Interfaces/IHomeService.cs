@@ -8,8 +8,14 @@ namespace ApiClone.Core.Interfaces
 {
     public interface IHomeService
     {
-        string OvirPassports(string PinFL);
+        string GetOvirPassports(string PinFL);
+
         string GetInn(string PinFL);
-        string Alimony(string PinFL);
+
+        string GetAlimony(object json);
+
+        string GetCapitalMarket(string Inn);
+
+        string GetGaiAutos(string PinFl);
     }
 }

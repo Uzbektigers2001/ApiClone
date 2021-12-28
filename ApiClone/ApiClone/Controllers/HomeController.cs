@@ -19,7 +19,25 @@ namespace ApiClone.Controllers
         [HttpPost]
         public IActionResult GetOvirPassports([FromHeader] PairValues keyValues)
         {
-            return Ok(_homeService.OvirPassports(keyValues.PinFL));
+            return Ok(_homeService.GetOvirPassports(keyValues.PinFL));
+        }
+
+        [HttpGet]
+        public IActionResult GetTaxCommiteeInn(string PinFL)
+        {
+            return Ok(_homeService.GetInn(PinFL));
+        }
+
+        [HttpPost]
+        public IActionResult GetPerosnAlimony([FromBody] object Json)
+        {
+            return Ok(_homeService.GetAlimony(Json));
+        }
+
+        [HttpGet]
+        public IActionResult CapitalMarkets([FromQuery]string Inn)
+        {
+            return Ok(_homeService.GetCapitalMarket(Inn));
         }
 
     }
