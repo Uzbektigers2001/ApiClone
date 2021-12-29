@@ -1,5 +1,6 @@
 ﻿using ApiClone.Core.Interfaces;
 using ApiClone.Domain;
+using ApiClone.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -38,6 +39,12 @@ namespace ApiClone.Controllers
         public IActionResult CapitalMarkets([FromQuery]string Inn)
         {
             return Ok(_homeService.GetCapitalMarket(Inn));
+        }
+
+        [HttpPost]
+        public IActionResult GetGaiAutos([FromHeader] KeyValues values)
+        {
+            return Ok(_homeService.GetGaiAutos(values.PinFL));
         }
 
     }

@@ -24,5 +24,7 @@ namespace ApiClone.Data
         
         public DbSet<GetPersonCapitalMarketsForApiClone> PersonCapitalMarkets { get; set; }
 
+        public DbSet<Vehicle> Vehicles { get; set; }
+
     }
 }
