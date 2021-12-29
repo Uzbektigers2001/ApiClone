@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ApiClone.Domain.Models
 {
+    /// <summary>
+    /// Auto transposrt datalari
+    /// </summary>
     public class Vehicle
     {
         [Key]
@@ -24,20 +27,31 @@ namespace ApiClone.Domain.Models
         public string Dover { get; set; }
     }
 
+    /// <summary>
+    /// Response
+    /// </summary>
     public class GaiAutos
     {
         public string PinFL { get; set; }
         public List<Vehicle> Vehicles { get; set; }
     }
 
+    /// <summary>
+    /// Headerdagi kelgan request
+    /// </summary>
     public class KeyValues
     {
         public string PinFL { get; set; }
     }
 
+
+
+    /// <summary>
+    /// Error bo'lganda ketaydigan answer
+    /// </summary>
     public class ErrorResponse
     {
         public int ErrorCode { get; set; } = 2;
-        public string ErrorDescription { get; set; } = "Маълумотни база топилмади";
+        public string ErrorDescription { get; set; } = "Ma'lumotni baza topolmadi";
     }
 }
