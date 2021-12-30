@@ -1,6 +1,8 @@
 ﻿using ApiClone.Core.Interfaces;
 using ApiClone.Domain;
+using ApiClone.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace ApiClone.Controllers
@@ -10,7 +12,6 @@ namespace ApiClone.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IHomeService _homeService;
-
         public HomeController(IHomeService homeService)
         {
             _homeService = homeService;
@@ -22,7 +23,7 @@ namespace ApiClone.Controllers
             return Ok(_homeService.GetOvirPassports(keyValues.PinFL));
         }
 
-        [HttpGet]
+        [HttpGet]//Procedureda o'zgarish bo'lgan
         public IActionResult GetTaxCommiteeInn(string PinFL)
         {
             return Ok(_homeService.GetInn(PinFL));
@@ -35,9 +36,15 @@ namespace ApiClone.Controllers
         }
 
         [HttpGet]
-        public IActionResult CapitalMarkets([FromQuery]string Inn)
+        public IActionResult CapitalMarkets([FromForm] string Inn)
         {
             return Ok(_homeService.GetCapitalMarket(Inn));
+        }
+
+        [HttpGet]             // shunchaki URLdan kelyapti
+        public IActionResult GetHigherEducation(string PinFL)
+        {
+            return Ok(_homeService.GetHigerEducation(PinFL));
         }
 
     }

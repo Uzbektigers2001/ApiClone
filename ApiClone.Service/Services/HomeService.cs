@@ -2,6 +2,7 @@
 using ApiClone.Data;
 using ApiClone.Domain;
 using ApiClone.Domain.Models;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System;
@@ -15,9 +16,11 @@ namespace ApiClone.Core.Services
     public class HomeService : IHomeService
     {
         private readonly ApiCloneDBContext _dbcontext;
+        private IMapper _mapper;
 
-        public HomeService( ApiCloneDBContext dbcontext)
+        public HomeService( ApiCloneDBContext dbcontext, IMapper mapper)
         {
+            _mapper = mapper;
             _dbcontext = dbcontext;
         }
 
@@ -132,5 +135,18 @@ namespace ApiClone.Core.Services
         {
             throw new NotImplementedException();
         }
+
+        public string GetHigerEducation(string PinFL)
+        {
+           IEnumerable<GetPersonIdWithPinFLForApiClone> res = _dbcontext.getPersonIdWithPinFL.FromSqlRaw($"GetPersonIdWithPinFLForApiClone '{PinFL}'").AsEnumerable();
+
+            PersonHigherEducation result = _dbcontext.PersonHigherEducationData.FirstOrDefault(p => p.PersonID == res.ToList()[0].PersonID);
+
+            HigherEducation higherEducation = _mapper.Map<HigherEducation>(result);
+
+            return JsonConvert.SerializeObject(higherEducation);
+        }
+
+        
     }
 }

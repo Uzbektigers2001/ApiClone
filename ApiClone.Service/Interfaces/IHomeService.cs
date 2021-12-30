@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiClone.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,7 @@ namespace ApiClone.Core.Interfaces
         string GetCapitalMarket(string Inn);
 
         string GetGaiAutos(string PinFl);
+
+        string GetHigerEducation(string PinFL);
     }
 }
