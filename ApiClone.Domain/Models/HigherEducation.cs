@@ -13,10 +13,10 @@ namespace ApiClone.Domain.Models
     {
         public bool success { get; set; } = true;
         public string code { get; set; } = "ok";
-        public Data data { get; set; }
+        public Dataa data { get; set; }
     }
-   
-    public class Data
+    [Table("PersonHigherEducation")]    
+    public class Dataa
     {
         public long Id { get; set; }
 
@@ -47,37 +47,7 @@ namespace ApiClone.Domain.Models
         [Column("EducationYear")]
         public string education_year { get; set; }
     }
-    public class PersonHigherEducation
-    {
-        public long Id { get; set; }
-
-        [Column("PersonID")]
-        public long PersonID { get; set; }
-
-        [Column("ApplicationID")]
-        public long ApplicationID { get; set; }
-
-        [Column("EducationTypeName")]
-        public string education_type_name { get; set; }
-
-        [Column("EducationFormCode")]
-        public int education_form_code { get; set; }
-
-        [Column("EducationFormName")]
-        public string education_form_name { get; set; }
-
-        [Column("UniversityName")]
-        public string university_name { get; set; }
-
-        [Column("FacultyName")]
-        public string faculty_name { get; set; }
-
-        [Column("Course")]
-        public string course { get; set; }
-
-        [Column("EducationYear")]
-        public string education_year { get; set; }
-    }
+  
     [Keyless]
     public class GetPersonIdWithPinFLForApiClone
     {

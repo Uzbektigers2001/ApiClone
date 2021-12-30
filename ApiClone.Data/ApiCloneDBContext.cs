@@ -25,9 +25,10 @@ namespace ApiClone.Data
         
         public DbSet<GetPersonCapitalMarketsForApiClone> PersonCapitalMarkets { get; set; }
 
-        public DbSet<PersonHigherEducation> PersonHigherEducationData { get; set; }
+        public DbSet<Dataa> PersonHigherEducation { get; set; }
 
         public DbSet<GetPersonIdWithPinFLForApiClone> getPersonIdWithPinFL { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,7 +37,7 @@ namespace ApiClone.Data
                 {
                     eb.HasNoKey();
                 });
-            modelBuilder.Entity<PersonHigherEducation>(
+            modelBuilder.Entity<Dataa>(
                 eb =>
                 {
                     eb.HasNoKey();

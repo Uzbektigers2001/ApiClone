@@ -160,11 +160,12 @@ namespace ApiClone.Core.Services
 
         public string GetHigerEducation(string PinFL)
         {
-           IEnumerable<GetPersonIdWithPinFLForApiClone> res = _dbcontext.getPersonIdWithPinFL.FromSqlRaw($"GetPersonIdWithPinFLForApiClone '{PinFL}'").AsEnumerable();
+            GetPersonIdWithPinFLForApiClone res = _dbcontext.getPersonIdWithPinFL.FromSqlRaw($"GetPersonIdWithPinFLForApiClone '50102027190025'").ToList()[0];
 
-            PersonHigherEducation result = _dbcontext.PersonHigherEducationData.FirstOrDefault(p => p.PersonID == res.ToList()[0].PersonID);
+            Dataa result = _dbcontext.PersonHigherEducation.FirstOrDefault(p => p.PersonID == res.PersonID);
 
-            HigherEducation higherEducation = _mapper.Map<HigherEducation>(result);
+            HigherEducation higherEducation = new HigherEducation();
+            higherEducation.data = result;
 
             return JsonConvert.SerializeObject(higherEducation);
         }
