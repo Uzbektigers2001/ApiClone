@@ -133,7 +133,29 @@ namespace ApiClone.Core.Services
 
         public string GetGaiAutos(string PinFl)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = _dbcontext.Vehicles.FromSqlRaw($"EXEC GetCarByPinFL {PinFl}").ToList();
+                if (result.Count == 0)
+                {
+                    ErrorResponse errorResponse = new ErrorResponse();
+                    errorResponse.ToString();
+                    return JsonConvert.SerializeObject(errorResponse);
+                }
+
+                GaiAutos gaiAutos = new GaiAutos();
+                gaiAutos.PinFL = PinFl;
+                gaiAutos.Vehicles = result;
+                gaiAutos.ToString();
+                return JsonConvert.SerializeObject(gaiAutos);
+            }
+            catch
+            {
+                ErrorResponse errorResponse = new ErrorResponse();
+                errorResponse.ToString();
+                return JsonConvert.SerializeObject(errorResponse);
+            }
+
         }
 
         public string GetHigerEducation(string PinFL)
