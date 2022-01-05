@@ -152,7 +152,29 @@ namespace ApiClone.Core.Services
                 errorResponse.ToString();
                 return JsonConvert.SerializeObject(errorResponse);
             }
+        }
 
+        public string GetCadastralRegion(string Pinfl)
+        {
+            var result = _dbcontext.Vladeniyas.FromSqlRaw($"GetCadastralRegionByPinfl {Pinfl}").ToList();
+            if(result is null)
+            {
+                ErrorResponse errorResponse = new ErrorResponse();
+                errorResponse.ToString();
+                return JsonConvert.SerializeObject(errorResponse);
+            }
+
+            CadastralRegion cadastralRegion = new CadastralRegion();
+            cadastralRegion.Vladeniya = result;
+            cadastralRegion.result = 1;
+
+
+            return JsonConvert.SerializeObject(cadastralRegion);
+        }
+
+        public string GetMofScholarship(string pinfl, string startDate, string endDate)
+        {
+            
         }
     }
 }

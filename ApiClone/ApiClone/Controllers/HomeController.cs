@@ -47,5 +47,17 @@ namespace ApiClone.Controllers
             return Ok(_homeService.GetGaiAutos(values.PinFL));
         }
 
+        [HttpGet]
+        public IActionResult GetCadastralRegions([FromBody] KeyValues Pinfl)
+        {
+            return Ok(_homeService.GetCadastralRegion(Pinfl.PinFL.ToString()));
+        }
+
+        [HttpGet]
+        public IActionResult GetMofShcholarship(string PINFL, string StartDate, string EndDate)
+        {
+            return Ok(_homeService.GetMofScholarship(PINFL, StartDate, EndDate));
+        }
+
     }
 }

@@ -17,5 +17,9 @@ namespace ApiClone.Core.Interfaces
         string GetCapitalMarket(string Inn);
 
         string GetGaiAutos(string PinFl);
+
+        string GetCadastralRegion(string Pinfl);
+
+        string GetMofScholarship(string pinfl, string startDate, string endDate);
     }
 }

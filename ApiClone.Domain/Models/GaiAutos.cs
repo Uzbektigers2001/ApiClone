@@ -42,6 +42,10 @@ namespace ApiClone.Domain.Models
     public class KeyValues
     {
         public string PinFL { get; set; }
+
+        public string Inn { get; set; }
+
+        public string Document { get; set; }
     }
 
 
