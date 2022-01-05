@@ -53,10 +53,12 @@ namespace ApiClone.Controllers
             return Ok(_homeService.GetCadastralRegion(Pinfl.PinFL.ToString()));
         }
 
+        //ertgerg
         [HttpGet]
         public IActionResult GetMofShcholarship(string PINFL, string StartDate, string EndDate)
         {
             return Ok(_homeService.GetMofScholarship(PINFL, StartDate, EndDate));
+
         }
 
     }
