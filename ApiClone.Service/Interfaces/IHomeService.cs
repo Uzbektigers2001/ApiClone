@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiClone.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,6 @@ namespace ApiClone.Core.Interfaces
 
         string GetGaiAutos(string PinFl);
 
-        string GetCadastralRegion(string Pinfl);
-
-        string GetMofScholarship(string pinfl, string startDate, string endDate);
+        string GetHigerEducation(string PinFL);
     }
 }
