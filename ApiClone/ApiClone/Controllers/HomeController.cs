@@ -1,9 +1,11 @@
 ﻿using ApiClone.Core.Interfaces;
+using ApiClone.Core.NewService;
 using ApiClone.Domain;
 using ApiClone.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiClone.Controllers
 {
@@ -12,8 +14,10 @@ namespace ApiClone.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IHomeService _homeService;
-        public HomeController(IHomeService homeService)
+        private readonly IService _newService;
+        public HomeController(IHomeService homeService, IService newService)
         {
+            _newService = newService;
             _homeService = homeService;
         }
 
@@ -48,18 +52,16 @@ namespace ApiClone.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCadastralRegions([FromBody] KeyValues Pinfl)
+        public IActionResult GetMofScholarship(string PINFL, string StartDate, string EndDate)
         {
-            return Ok(_homeService.GetCadastralRegion(Pinfl.PinFL.ToString()));
+            return Ok(_newService.GetMofScholarship(PINFL, StartDate, EndDate));
         }
-
-        //ertgerg
-        [HttpGet]
-        public IActionResult GetMofShcholarship(string PINFL, string StartDate, string EndDate)
+       
+        [HttpPost]
+        public IActionResult GetMolDisability([FromBody] MoLRequestVm test1)
         {
-            return Ok(_homeService.GetMofScholarship(PINFL, StartDate, EndDate));
-
+            return Ok(_newService.GetMolDisability(test1.Params.body.pin));
+            //return Ok(_newService.GetMolDisability(Id));
         }
-
     }
 }

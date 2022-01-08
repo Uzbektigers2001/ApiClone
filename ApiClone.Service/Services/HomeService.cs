@@ -157,7 +157,7 @@ namespace ApiClone.Core.Services
             }
         }
 
-        public string GetCadastralRegion(string Pinfl)
+        /*public string GetCadastralRegion(string Pinfl)
         {
             var result = _dbcontext.Vladeniyas.FromSqlRaw($"GetCadastralRegionByPinfl {Pinfl}").ToList();
             if(result is null)
@@ -173,7 +173,7 @@ namespace ApiClone.Core.Services
 
 
             return JsonConvert.SerializeObject(cadastralRegion);
-        }
+        }*/
 
         public string GetMofScholarship(string pinfl, string startDate, string endDate)
         {

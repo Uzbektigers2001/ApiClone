@@ -1,4 +1,6 @@
 using ApiClone.Core.Interfaces;
+using ApiClone.Core.NewService;
+using ApiClone.Core.NewService.Concrete;
 using ApiClone.Core.Services;
 using ApiClone.Data;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +33,8 @@ namespace ApiClone
             });
 
             services.AddScoped<IHomeService, HomeService>();
+            services.AddScoped<IService, Service>();
+
             services.AddDbContext<ApiCloneDBContext>(options => 
                         options.UseSqlServer(Configuration.GetConnectionString("ConnectProduction")));
         }

@@ -11,10 +11,7 @@ namespace ApiClone.Data
 {
     public class ApiCloneDBContext : DbContext
     {
-        public ApiCloneDBContext(DbContextOptions context) : base(context)
-        {
-           
-        }
+        public ApiCloneDBContext(DbContextOptions<ApiCloneDBContext> context) : base(context) { }
 
         public DbSet<OvirPassports> OvirPassports { get; set; }
 
@@ -27,7 +24,11 @@ namespace ApiClone.Data
         public DbSet<Dataa> PersonHigherEducation { get; set; }
 
         public DbSet<GetPersonIdWithPinFLForApiClone> getPersonIdWithPinFL { get; set; }
+
         public DbSet<Vehicle> Vehicles { get; set; }
 
+        public DbSet<InCome> InComes { get; set; }
+        
+        public DbSet<PinFLWithName> pinFLWithNames { get; set; }
     }
 }
